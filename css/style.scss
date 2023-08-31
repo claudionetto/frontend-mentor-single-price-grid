@@ -1,0 +1,148 @@
+
+@import "_var.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $ff-karla;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    font-size: 16px;
+    background-color: $clr-light-gray;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    grid-template-rows: repeat(3, auto);
+    margin: 1.5rem;
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        padding: 1.7rem 1.5rem;
+
+        &--description{
+            background-color: white;
+
+            & > h2{
+                color: $clr-cyan;
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+                font-weight: $fw-bold;
+            }
+
+            & > h3{
+                color: $clr-bright-yellow;
+                font-size: 1rem;
+                font-weight: $fw-bold;
+            }
+
+            & > p{
+                color: $clr-grayish-blue;
+                font-size: 1rem;
+                line-height: 1.6rem;
+            }
+        }
+
+        &--price{
+            background-color: $clr-cyan;
+            color: white;
+
+            & > h2{
+                font-size: 1.1rem;
+            }
+
+            .flex-price{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-direction: row;
+
+                h3{
+                    font-size: 1.9rem;
+                }
+
+                p{
+                    color: $clr-light-gray;
+                }
+            }
+
+            & > p{
+                margin-bottom: 1rem;
+            }
+
+            .button{
+                background-color: $clr-bright-yellow;
+                padding: 1rem;
+                font-size: 1rem;
+                border: none;
+                border-radius: .3rem;
+                color: white;
+            }
+        }
+
+        &--benefits{
+            background-color: $clr-light-cyan;
+
+            & > h2{
+                font-size: 1.1rem;
+                color: white;
+            }
+
+            & > p{
+                line-height: 1.4rem;
+                color: $clr-light-gray;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 400px){
+
+    .card{
+        max-width: 700px;
+    }
+
+    .card__content{
+        text-align: center;
+
+        .flex-price{
+            align-self: center;
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    .card{
+        grid-template-columns: 1fr 1fr;
+        border-radius: 0.5rem;
+        grid-template-rows: auto;
+        max-width: 700px;
+
+        &__content{
+
+            text-align: start;
+            padding: 2.75rem;
+
+            .flex-price{
+                align-self: flex-start;
+            }
+
+            &--description{
+                grid-column: 1 / -1;
+            }
+        }
+    }
+}
